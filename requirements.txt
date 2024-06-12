@@ -1,0 +1,4 @@
+jupyter_contrib_nbextensions
+numpy 
+matplotlib 
+ipywidgets
