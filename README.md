@@ -1,1 +1,1 @@
-# aero-lecture
+# Berechnungsmethoden in der Aerodynamik
