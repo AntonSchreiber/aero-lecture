@@ -69,17 +69,31 @@ def widget_diskretisierung_doppeltrapez(l_a, l_k, y_lk, AR, s):
 
 
 def plot_auftriebsverteilung(A_j, y_c, s):
-    # TODO add elliptische Auftriebsverteilung
-    A_distr = np.sum(A_j, axis=0)
-    A_distr[0] = 0
-    A_distr[-1] = 0
 
-    y_c[0] = -s
-    y_c[-1] = s
+    # Erweitere A_distr und y_c am Anfang und Ende um an den tips auf 0 zu plotten
+    A_j = np.insert(A_j, 0, 0)
+    A_j = np.append(A_j, 0)
+    y_c = np.insert(y_c, 0, -s)
+    y_c = np.append(y_c, s)
 
+    # Berechne die Fläche unter der berechneten Auftriebsverteilung
+    area_distr = np.trapz(A_j, y_c)
+    
+    # Erzeuge die elliptische Auftriebsverteilung
+    y_elliptisch = np.linspace(-s, s, len(y_c))
+    A_elliptisch_raw = np.sqrt(1 - (y_elliptisch / s) ** 2)
+    
+    # Skaliere die elliptische Verteilung so, dass die Flächen gleich sind
+    area_elliptisch_raw = np.trapz(A_elliptisch_raw, y_elliptisch)
+    scale_factor = area_distr / area_elliptisch_raw
+    A_elliptisch = A_elliptisch_raw * scale_factor
+
+    # Plotten der Auftriebsverteilungen
     plt.figure(figsize=(10, 6))
-    plt.plot(y_c, A_distr, '-', color="black")
+    plt.plot(y_c, A_j, '-', color="black", label='Berechnete Auftriebsverteilung')
+    plt.plot(y_elliptisch, A_elliptisch, '--', color="red", label='Elliptische Auftriebsverteilung')
     plt.xlabel('Spannweite [m]')
-    plt.ylabel('Flügeltiefe [m]')
+    plt.ylabel('Auftrieb [N]')
     plt.title('Auftriebsverteilung')
+    plt.legend()
     plt.show()
