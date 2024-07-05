@@ -1,6 +1,6 @@
 # Berechnungsmethoden in der Aerodynamik - Rechnerübung
 
-Willkommen zum Computer-basierten Teil der Übung der Vorlesung "Berechnungsmethoden in der Aerodynamik". Hier findet ihr alle benötigten Ressourcen und Anleitungen, um erfolgreich an den Übungen teilzunehmen. Die Übungen werden als Jupyter Notebooks, also einer Kombination aus Python Quellcode und Markdown Text, nach und nach bereitgestellt.
+Willkommen zum Computer-basierten Teil der Übung zur Vorlesung "Berechnungsmethoden in der Aerodynamik". Hier findet ihr alle benötigten Ressourcen und Anleitungen, um erfolgreich an den Übungen teilzunehmen. Die Übungen werden als Jupyter Notebooks, also einer Kombination aus Python Quellcode und Markdown Text, nach und nach bereitgestellt.
 
 ## Inhaltsverzeichnis
 
