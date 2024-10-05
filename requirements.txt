@@ -1,3 +1,4 @@
+blume==0.2.6
 pandas == 2.2.2
 plotly == 24.2
 numpy == 2.0.0
